@@ -20,18 +20,16 @@ public class AddComplex {
     private JComboBox<String> types;
     private Scene scene;
     private ImageIcon icon;
-    private boolean boundingBoxState;
     private ArrayList<Item> list;
 
     private final String ERROR = "Invalid parameters!";
     private final int WIDTH=400, HEIGHT=265, GAP=10;
     private final float TITLE_FONT_SIZE_1 = 20.0f, NORMAL_FONT_SIZE=12.0f;
 
-    public AddComplex(Scene scene,boolean bboxState)
+    public AddComplex(Scene scene)
     {
         this.scene=scene;
         icon = new ImageIcon("C:\\Users\\julia\\IdeaProjects\\Lista8pp\\src\\shapes.png");
-        boundingBoxState=bboxState;
         list = new ArrayList<Item>();
 
         frame=new JFrame("Add a complex shape!");
@@ -123,7 +121,7 @@ public class AddComplex {
     {
         @Override
         public void actionPerformed(ActionEvent e) {
-            AddMenu g = new AddMenu(scene,boundingBoxState);
+            AddMenu g = new AddMenu(scene);
             g.start();
             frame.dispose();
         }
@@ -146,8 +144,8 @@ public class AddComplex {
             if(checkParameters())
             {
                 scene.addItem(new ComplexItem(nameField.getText(),list));
-                scene.draw(boundingBoxState);
-                AddMenu g = new AddMenu(scene,boundingBoxState);
+                scene.draw();
+                AddMenu g = new AddMenu(scene);
                 g.start();
                 frame.dispose();
             }

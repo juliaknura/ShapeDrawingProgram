@@ -28,14 +28,6 @@ public class ComplexItem extends Item {
             i.draw(g);
         }
     }
-
-    @Override
-    public void drawBoundingBox(Graphics2D g) {
-        g.setStroke(new BasicStroke(2,BasicStroke.CAP_BUTT,BasicStroke.JOIN_MITER,10f,new float[]{9},5f));
-        g.setColor(Color.DARK_GRAY);
-        g.drawRect(getPosition().getX(),getPosition().getY(),getBoundingBox().getTopRight().getX()-getBoundingBox().getTopLeft().getX(),getBoundingBox().getBottomLeft().getY()-getBoundingBox().getTopLeft().getY());
-    }
-
     private void calculateBoundingBox()
     {
         int xMin=children.get(0).getPosition().getX(), xMax=children.get(0).getPosition().getX(), yMin=children.get(0).getPosition().getY(), yMax=children.get(0).getPosition().getY();

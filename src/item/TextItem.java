@@ -37,16 +37,6 @@ public class TextItem extends Item{
         g.drawString(text,position.getX(), position.getY());
     }
 
-    @Override
-    public void drawBoundingBox(Graphics2D g) {
-        if(boundingBoxState)
-        {
-            g.setColor(Color.DARK_GRAY);
-            g.setStroke(new BasicStroke(2,BasicStroke.CAP_BUTT,BasicStroke.JOIN_MITER,10f,new float[]{9},5f));
-            g.drawRect(getPosition().getX(), getPosition().getY(), width,height);
-        }
-    }
-
     private void calculateBoundingBox(Graphics2D g)
     {
         Point position2 = new Point(position.getX(), position.getY()+fontSize/3);

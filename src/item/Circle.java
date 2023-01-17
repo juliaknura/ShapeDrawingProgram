@@ -33,13 +33,6 @@ public class Circle extends Shape{
         }
     }
 
-    @Override
-    public void drawBoundingBox(Graphics2D g) {
-        g.setColor(Color.DARK_GRAY);
-        g.setStroke(new BasicStroke(2,BasicStroke.CAP_BUTT,BasicStroke.JOIN_MITER,10f,new float[]{9},5f));
-        g.drawRect(falsecenter.getX(), falsecenter.getY(),2*radius,2*radius);
-    }
-
     public int getRadius() {
         return radius;
     }

@@ -7,7 +7,7 @@ public class Main {
 
         Scene scene = new Scene();
 
-        MainMenu gui = new MainMenu(scene,false);
+        MainMenu gui = new MainMenu(scene);
         gui.start();
 
 

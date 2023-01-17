@@ -44,13 +44,6 @@ public class Spiral extends Shape{
         }
     }
 
-    @Override
-    public void drawBoundingBox(Graphics2D g) {
-        g.setColor(Color.DARK_GRAY);
-        g.setStroke(new BasicStroke(2,BasicStroke.CAP_BUTT,BasicStroke.JOIN_MITER,10f,new float[]{9},5f));
-        g.drawRect(bound.getX(), bound.getY(), 2*gap,2*gap);
-    }
-
     private void calculateBoundingBox()
     {
         Point topLeft = bound;

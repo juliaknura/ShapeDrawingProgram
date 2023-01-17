@@ -17,16 +17,14 @@ public class DeleteMenu {
     private JButton delete,back;
     private Scene scene;
     private ImageIcon icon;
-
-    private boolean boundingBoxState;
     private final int WIDTH=400,HEIGHT=220,GAP=10;
     private final float TITLE_FONT_SIZE_1 = 20.0f, NORMAL_FONT_SIZE=12.0f;
 
-    public DeleteMenu(Scene scene,boolean bboxState)
+    public DeleteMenu(Scene scene)
     {
         this.scene=scene;
         icon=new ImageIcon("C:\\Users\\julia\\IdeaProjects\\Lista8pp\\src\\shapes.png");
-        boundingBoxState=bboxState;
+
         items=new JComboBox<String>(scene.itemNames());
 
         frame=new JFrame("Delete a shape!");
@@ -93,8 +91,8 @@ public class DeleteMenu {
         public void actionPerformed(ActionEvent e) {
             Item i = scene.getItem((String)items.getSelectedItem());
             scene.deleteItem(i.getName());
-            scene.draw(boundingBoxState);
-            DeleteMenu g = new DeleteMenu(scene,boundingBoxState);
+            scene.draw();
+            DeleteMenu g = new DeleteMenu(scene);
             g.start();
             frame.dispose();
         }
@@ -104,7 +102,7 @@ public class DeleteMenu {
     {
         @Override
         public void actionPerformed(ActionEvent e) {
-            MainMenu g = new MainMenu(scene,boundingBoxState);
+            MainMenu g = new MainMenu(scene);
             g.start();
             frame.dispose();
         }

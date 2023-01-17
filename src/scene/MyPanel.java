@@ -11,13 +11,11 @@ public class MyPanel extends JPanel {
     private final int SIZE=500;
     private final int GAP_SIZE=10;
     private ArrayList<Item> items;
-    private boolean boundingBox;
 
-    public MyPanel(ArrayList<Item> items,boolean boundingBox)
+    public MyPanel(ArrayList<Item> items)
     {
         this.setPreferredSize(new Dimension(SIZE,SIZE));
         this.items=items;
-        this.boundingBox=boundingBox;
     }
 
     @Override
@@ -42,15 +40,6 @@ public class MyPanel extends JPanel {
         for(Item i:items)
         {
             i.draw(g2d);
-        }
-
-        //optional drawing of bounding boxes
-        if(boundingBox)
-        {
-            for(Item i:items)
-            {
-                i.drawBoundingBox(g2d);
-            }
         }
     }
 }

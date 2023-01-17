@@ -23,14 +23,12 @@ public class MoveMenu {
     private final float TITLE_FONT_SIZE_1 = 20.0f, NORMAL_FONT_SIZE=12.0f;
     private final String ERR_MSG = "Cannot move an element beyond the scene dumbo";
     private ImageIcon icon;
-    private boolean boundingBoxState;
     private int x,y;
 
-    public MoveMenu(Scene scene, boolean bboxState)
+    public MoveMenu(Scene scene)
     {
         this.scene=scene;
         icon = new ImageIcon("C:\\Users\\julia\\IdeaProjects\\Lista8pp\\src\\shapes.png");
-        boundingBoxState=bboxState;
 
         frame = new JFrame("Move a shape!");
 
@@ -148,7 +146,7 @@ public class MoveMenu {
             else {
                 errorMsg.setText(ERR_MSG);
             }
-            scene.draw(boundingBoxState);
+            scene.draw();
 
         }
     }
@@ -158,7 +156,7 @@ public class MoveMenu {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            MainMenu g = new MainMenu(scene,boundingBoxState);
+            MainMenu g = new MainMenu(scene);
             g.start();
             frame.dispose();
         }

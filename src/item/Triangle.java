@@ -45,13 +45,6 @@ public class Triangle extends Shape{
         }
     }
 
-    @Override
-    public void drawBoundingBox(Graphics2D g) {
-        g.setStroke(new BasicStroke(2,BasicStroke.CAP_BUTT,BasicStroke.JOIN_MITER,10f,new float[]{9},5f));
-        g.setColor(Color.DARK_GRAY);
-        g.drawRect(getPosition().getX(),getPosition().getY(),getBoundingBox().getTopRight().getX()-getBoundingBox().getTopLeft().getX(),getBoundingBox().getBottomLeft().getY()-getBoundingBox().getTopLeft().getY());
-    }
-
     private void calculateBoundingBox()
     {
         int maxX,minX,maxY,minY;

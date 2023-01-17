@@ -3,9 +3,9 @@ package item;
 import java.awt.*;
 
 public abstract class Item {
-    private BoundingBox box;
-    private String name;
-    private Color color;
+    protected BoundingBox box;
+    protected String name;
+    protected Color color;
 
     public Item(String name,Color color)
     {
@@ -29,7 +29,6 @@ public abstract class Item {
     }
 
     public abstract void draw(Graphics2D g);
-    public abstract void drawBoundingBox(Graphics2D g);
     public void setBox(BoundingBox box) {
         this.box = box;
     }

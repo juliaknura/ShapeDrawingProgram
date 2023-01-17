@@ -20,13 +20,11 @@ public class MainMenu {
     private ImageIcon icon;
     private final int HEIGHT=410,WIDTH=700,SIDE_PANEL_WIDTH=50, TITLE_WIDTH=440,TITLE_HEIGHT=80,HORIZONTAL_GAP=20,VERTICAL_GAP=20, GAP=10;
     private final float TITLE_FONT_SIZE_1 = 28.0f,TITLE_FONT_SIZE_2 = 25.0f, NORMAL_FONT_SIZE=16.0f;
-    private boolean stateOfBoundingBoxes;
 
-    public MainMenu(Scene scene, boolean bboxState)
+    public MainMenu(Scene scene)
     {
         this.scene=scene;
         icon = new ImageIcon("C:\\Users\\julia\\IdeaProjects\\Lista8pp\\src\\shapes.png");
-        stateOfBoundingBoxes=bboxState;
 
         frame= new JFrame("Shape-y shape-y shapes");
 
@@ -36,7 +34,7 @@ public class MainMenu {
         addLabel = new JLabel("Add an element");
         deleteLabel = new JLabel("Delete an element");
         moveLabel = new JLabel("Move an element");
-        boundingBoxLabel = new JLabel("Bounding boxes:");
+        boundingBoxLabel = new JLabel("Manage bounding boxes:");
 
         pictureTitle1 = new ImagePanel();
         pictureTitle2 = new ImagePanel();
@@ -44,7 +42,7 @@ public class MainMenu {
         addButton = new JButton("ADD");
         deleteButton = new JButton("DEL");
         moveButton = new JButton("MOV");
-        boundingBoxButton = new JButton("OFF");
+        boundingBoxButton = new JButton("GO");
 
         general = new JPanel();
         title = new JPanel();
@@ -62,7 +60,7 @@ public class MainMenu {
 
     public void start()
     {
-        scene.draw(stateOfBoundingBoxes);
+        scene.draw();
 
         //main frame properties
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -170,7 +168,7 @@ public class MainMenu {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            AddMenu g = new AddMenu(scene,stateOfBoundingBoxes);
+            AddMenu g = new AddMenu(scene);
             g.start();
             frame.dispose();
 
@@ -182,7 +180,7 @@ public class MainMenu {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            DeleteMenu g = new DeleteMenu(scene,stateOfBoundingBoxes);
+            DeleteMenu g = new DeleteMenu(scene);
             g.start();
             frame.dispose();
         }
@@ -193,7 +191,7 @@ public class MainMenu {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            MoveMenu g = new MoveMenu(scene,stateOfBoundingBoxes);
+            MoveMenu g = new MoveMenu(scene);
             g.start();
             frame.dispose();
         }
@@ -204,19 +202,9 @@ public class MainMenu {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            if(stateOfBoundingBoxes)
-            {
-                boundingBoxButton.setText("OFF");
-                stateOfBoundingBoxes=false;
-                scene.draw(stateOfBoundingBoxes);
-
-            }
-            else
-            {
-                boundingBoxButton.setText("ON");
-                stateOfBoundingBoxes=true;
-                scene.draw(stateOfBoundingBoxes);
-            }
+            BoundingBoxMenu g = new BoundingBoxMenu(scene);
+            g.start();
+            frame.dispose();
 
         }
     }

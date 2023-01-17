@@ -24,8 +24,8 @@ public class Scene {
         frame = new MyFrame();
     }
 
-    public void draw(boolean boundingBox) {
-        frame.create(items,boundingBox);
+    public void draw() {
+        frame.create(items);
     }
 
     public void addItem(Item item)

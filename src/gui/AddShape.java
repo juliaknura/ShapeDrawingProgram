@@ -22,7 +22,6 @@ public class AddShape {
 
     private Scene scene;
     private ImageIcon icon;
-    private boolean boundingBoxState;
     private String type;
     private final Integer fonts[] = {10,11,12,14,16,20,24,32};
     private final String isFilledStates[] = {"filled","not filled"};
@@ -32,11 +31,10 @@ public class AddShape {
             TEXT_HEIGHT=380, SEG_HEIGHT=380, SPIRAL_HEIGHT=380,GAP=10, SCENE_SIZE=500;
 
     private final float FONT_TITLE=20.0f;
-    public AddShape(Scene scene, boolean bboxState,String type)
+    public AddShape(Scene scene,String type)
     {
         this.scene=scene;
         icon = new ImageIcon("C:\\Users\\julia\\IdeaProjects\\Lista8pp\\src\\shapes.png");
-        boundingBoxState=bboxState;
         this.type=type;
 
         frame=new JFrame("Add a shape!");
@@ -439,7 +437,7 @@ public class AddShape {
     {
         @Override
         public void actionPerformed(ActionEvent e) {
-            AddMenu g = new AddMenu(scene,boundingBoxState);
+            AddMenu g = new AddMenu(scene);
             g.start();
             frame.dispose();
         }
@@ -467,8 +465,8 @@ public class AddShape {
                         break;
                 }
 
-                scene.draw(boundingBoxState);
-                AddMenu g = new AddMenu(scene,boundingBoxState);
+                scene.draw();
+                AddMenu g = new AddMenu(scene);
                 g.start();
                 frame.dispose();
             }
